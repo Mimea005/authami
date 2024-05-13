@@ -1,0 +1,38 @@
+services:
+  authami:
+    build: .
+    env_file:
+      - .env
+    develop:
+      watch:
+        - action: rebuild
+          path: ./src
+        - action: rebuild
+          path: ./Cargo.toml
+        - action: rebuild
+          path: Dockerfile
+        - action: sync+restart
+          path: .env
+          target: /.env
+        - action: sync+restart
+          path: public
+          target: /public
+    ports:
+      - "8000:8000"
+  cloak:
+    image: fusionauth/fusionauth-app:latest
+    ports:
+      - "9011:9011"
+  pgdb:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    # command: start-dev
+    # ports:
+    #   - "8080:8080"
+    # environment:
+    #     KEYCLOAK_ADMIN: admin
+    #     KEYCLOAK_ADMIN_PASSWORD: admin

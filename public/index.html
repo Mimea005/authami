@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>WhoAreYou</title>
+		<script src="https://unpkg.com/htmx.org@1.9.12"></script>
+	</head>
+	<body>
+		<section 
+			hx-trigger="load"
+			hx-get="/components/header.html" 
+			hx-swap="outerHTML"
+			>
+			loading header...
+		</section>
+		<section
+			hx-trigger="load"
+			hx-get="/components/unknown-person.html"
+			hx-swap="outerHTML"
+			>
+			loading content...
+		</section>
+	</body>
+</html>

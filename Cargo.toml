@@ -1,0 +1,15 @@
+[package]
+name = "authami"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "authami"
+path = "src/main.rs"
+
+[dependencies]
+dotenvy = "0.15.7"
+reqwest = {version = "0.12.4", default-features = false}
+rocket = "0.5.0"
