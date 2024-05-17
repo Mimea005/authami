@@ -1,0 +1,12 @@
+{{#> layout}}
+<section hx-trigger="load"
+         hx-get="/components/header"
+         hx-swap="outerHTML">
+    loading header...
+</section>
+<section hx-trigger="load"
+         hx-get="/components/unknown-person"
+         hx-swap="outerHTML">
+    loading content...
+</section>
+{{/layout}}
